@@ -20,10 +20,11 @@ class _Logo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-        onTap: onTap, // 상위 위젯으로부터 탭 콜백 받기
-        child: Image.asset(
-          'asset/img/logo.png',
-        ));
+      onTap: onTap, // 상위 위젯으로부터 탭 콜백 받기
+      child: Image.asset(
+        'asset/img/logo.png',
+      ),
+    );
     // return Image.asset(
     //   'asset/img/logo.png', // 로고 이미지
     // );

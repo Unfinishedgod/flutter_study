@@ -20,19 +20,49 @@ class CustomVideoPlayer extends StatefulWidget {
 
 class _CustomVideoPlayerState extends State<CustomVideoPlayer> {
   // 동영상을 조작하는 컨트롤러
-  VideoPlayerController? videoPlayerController;
+  VideoPlayerController? videoController;
   @override
-  void ini
+  void initState() {
+    super.initState();
+
+    initializeController(); // 컨트롤러 초기화
+  }
+
+  initializeController() async { // 선택한 동영상으로 컨트롤러 초기화
+    final videoController = VideoPlayerController.file(
+      File(widget.video.path),
+    );
+  
+
+    await videoController.initialize();
+    setState(() {
+      this.videoController = videoController;
+    });
+  }
+
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        'CustomVideoPlayer', // 샘플 텍스트
-        style: TextStyle(
-          color: Colors.white,
-        ),
+    // 동영상 컨트롤러가 준비 중일 때 로딩 표시
+    if (videoController == null) {
+      return Center(
+          child: CircularProgressIndicator(),
+        );
+    }
+
+    return AspectRatio( // 동영상 비율에 따른 화면 렌더링
+      aspectRatio: videoController!.value.aspectRatio,
+      child: VideoPlayer(
+        videoController!,
       ),
     );
+    // return Center(
+    //   child: Text(
+    //     'CustomVideoPlayer', // 샘플 텍스트
+    //     style: TextStyle(
+    //       color: Colors.white,
+    //     ),
+    //   ),
+    // );
   }
 }

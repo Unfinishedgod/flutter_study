@@ -112,7 +112,7 @@ class _CustomVideoPlayerState extends State<CustomVideoPlayer> {
                 right: 0,
                 left: 0,
                 child: Padding(
-                  padding: EdgeInsets.sysmmetric(horizontal: 8.0),
+                  padding: EdgeInsets.symmetric(horizontal: 8.0),
                   child: Row(
                     children: [
                       renderTimeTextFromDuration(
@@ -192,9 +192,8 @@ class _CustomVideoPlayerState extends State<CustomVideoPlayer> {
   Widget renderTimeTextFromDuration(Duration duration) {
     //  Duration 값을 보기 편한 형태로 변환하기
     return Text(
-      '${duration.inMinutes.toString().padLeft(2, '0')}:
-      ${(duration.inSeconds % 60).toString().padLeft(2, '0')}',
-      style : TextStyle(
+      '${duration.inMinutes.toString().padLeft(2, '0')}:${(duration.inSeconds % 60).toString().padLeft(2, '0')}',
+      style: TextStyle(
         color: Colors.white,
       ),
     );

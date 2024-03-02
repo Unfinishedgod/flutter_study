@@ -56,6 +56,8 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^3.0.0
+  drift_dev: 2.13.0 # Drift 코드 생성 기능 관련 플러그인
+  build_runner: 2.4.6 # 플러터에서 코드 생성 기능을 제공해주는 플러그인
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

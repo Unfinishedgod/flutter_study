@@ -4,6 +4,9 @@ import 'package:table_calendar/table_calendar.dart';
 import 'package:ch_17_calendar_scheduler_desktop/component/schedule_card.dart';
 import 'package:ch_17_calendar_scheduler_desktop/component/schedule_bottom_sheet.dart';
 import 'package:ch_17_calendar_scheduler_desktop/const/colors.dart';
+import 'package:get_it/get_it.dart';
+import 'package:ch_17_calendar_scheduler_desktop/database/drift_database.dart';
+import 'package:calendar_scheduler/component/today_banner.dart';
 
 
 class HomeScreen extends StatefulWidget {
@@ -56,6 +59,12 @@ class _HomeScreenState extends State<HomeScreen> {
               // 날짜가 선택됐을 때 실행할 함수
               onDaySelected: onDaySelected,
             ),
+            SizedBox(height: 8.0),
+            TodayBanner(
+              selectedDate: selectedDate, 
+              count: 0
+            ),
+            SizedBox(height: 8.0),
             ScheduleCard(
               startTime: 13,
               endTime:14,

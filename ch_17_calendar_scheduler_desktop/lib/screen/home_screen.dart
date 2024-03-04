@@ -6,7 +6,7 @@ import 'package:ch_17_calendar_scheduler_desktop/component/schedule_bottom_sheet
 import 'package:ch_17_calendar_scheduler_desktop/const/colors.dart';
 import 'package:get_it/get_it.dart';
 import 'package:ch_17_calendar_scheduler_desktop/database/drift_database.dart';
-import 'package:calendar_scheduler/component/today_banner.dart';
+import 'package:ch_17_calendar_scheduler_desktop/component/today_banner.dart';
 
 
 class HomeScreen extends StatefulWidget {

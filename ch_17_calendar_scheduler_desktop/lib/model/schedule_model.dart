@@ -34,8 +34,19 @@ class ScehduleModel {
     };
   }
 
-  ScheduleModel copyWith({ // 
-
-  })
-
+  ScheduleModel copyWith({ // 현재 모델을 특정 속성만 변환해서 새로 생성
+    String? id,
+    String? content, 
+    DateTime? date,
+    int? startTime,
+    int? endTime,
+  }) {
+    return ScheduleModel (
+      id: id ?? this.id,
+      content: content ?? this.content,
+      date: date ?? this.date,
+      startTime: startTime ?? this.startTime,
+      endTime: endTime ?? this.endTime
+    );
+  }
 }

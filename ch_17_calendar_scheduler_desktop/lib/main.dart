@@ -29,5 +29,5 @@ void main() async {
         home: HomeScreen(),
       ),
     ),
-  )
+  );
 }

@@ -5,6 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:drift/drift.dart' hide Column;
 import 'package:get_it/get_it.dart';
 import 'package:ch_17_calendar_scheduler_desktop/database/drift_database.dart';
+import 'package:ch_17_calendar_scheduler_desktop/model/schedule_model.dart';
+import 'package:provider/provider.dart';
+import 'package:ch_17_calendar_scheduler_desktop/provider/schedule_provider.dart';
 
 class ScheduleBottomSheet extends StatefulWidget {
   final DateTime selectedDate; // 선택된 날짜 상위 위젯에서 입력받기
@@ -86,7 +89,8 @@ class _ScheduleBottomSheetState extends State<ScheduleBottomSheet> {
                   width: double.infinity,
                   child: ElevatedButton( // 저장 버튼
                     // 저장 버튼
-                    onPressed: onSavePressed,
+                    // onPressed: onSavePressed,
+                    onPressed: () => onSavePressed(context), // 함수에 context 전달
                     style: ElevatedButton.styleFrom(
                       // primary: PRIMARY_COLOR,
                     ),            
@@ -101,18 +105,28 @@ class _ScheduleBottomSheetState extends State<ScheduleBottomSheet> {
     );
   }
 
-  void onSavePressed() async {
+  void onSavePressed(BuildContext context) async {
     if(formKey.currentState!.validate()) { 
       // 폼 검증하기
       formKey.currentState!.save(); // 폼 저장 하기
 
-      await GetIt.I<LocalDatabase>().createSchedule( // 일정 생성
-        SchedulesCompanion(
-          startTime: Value(startTime!),
-          endTime: Value(endTime!),
-          content: Value(content!),
-          date: Value(widget.selectedDate),
-        ),
+      // await GetIt.I<LocalDatabase>().createSchedule( // 일정 생성
+      //   SchedulesCompanion(
+      //     startTime: Value(startTime!),
+      //     endTime: Value(endTime!),
+      //     content: Value(content!),
+      //     date: Value(widget.selectedDate),
+      //   ),
+      // );
+
+      context.read<ScheduleProvider>().createSchedule(
+        schedule: Schedule(
+          id: 'new_model',  // 임시 ID
+          content: content!, 
+          date: widget.selectedDate, 
+          startTime: startTime!, 
+          endTime: endTime!
+          )
       );
 
       Navigator.of(context).pop(); // 일정 생성 후 화면 뒤로 가기

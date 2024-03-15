@@ -120,13 +120,13 @@ class _ScheduleBottomSheetState extends State<ScheduleBottomSheet> {
       // );
 
       context.read<ScheduleProvider>().createSchedule(
-        schedule: Schedule(
+        schedule: ScheduleModel(
           id: 'new_model',  // 임시 ID
           content: content!, 
           date: widget.selectedDate, 
           startTime: startTime!, 
           endTime: endTime!
-          )
+        )
       );
 
       Navigator.of(context).pop(); // 일정 생성 후 화면 뒤로 가기

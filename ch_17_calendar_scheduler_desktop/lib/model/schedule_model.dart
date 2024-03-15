@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class ScehduleModel {
+class ScheduleModel {
   final String id;
   final String content;
   final DateTime date;

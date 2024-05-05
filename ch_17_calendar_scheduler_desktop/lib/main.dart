@@ -21,21 +21,26 @@ void main() async {
 
   await initializeDateFormatting(); // intl 패키지 초기화 (다국어화)
 
-  // 데이터 베이스 생성
-  final database = LocalDatabase(); // 데이터베이스 생성
+  // // 데이터 베이스 생성
+  // final database = LocalDatabase(); // 데이터베이스 생성
 
-  // GetIt에 데이터베이스 변수 주입하기
-  GetIt.I.registerSingleton<LocalDatabase>(database);
+  // // GetIt에 데이터베이스 변수 주입하기
+  // GetIt.I.registerSingleton<LocalDatabase>(database);
 
-  final repository = ScheduleRepository();
-  final scheduleProvider = ScheduleProvider(repository: repository);
+  // final repository = ScheduleRepository();
+  // final scheduleProvider = ScheduleProvider(repository: repository);
 
   runApp(
-    ChangeNotifierProvider( // provider 하위 위젯에 제공하기
-      create: (_) => scheduleProvider,
-      child: MaterialApp(
-        home: HomeScreen(),
-      ),
-    ),
+    // ChangeNotifierProvider( 
+    //   // provider 하위 위젯에 제공하기
+    //   create: (_) => scheduleProvider,
+    //   child: MaterialApp(
+    //     home: HomeScreen(),
+    //   ),
+    // ),
+    MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: HomeScreen(),
+   ),
   );
 }

@@ -170,6 +170,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       //   date: selectedDate, 
                       //   id: schedule.id
                       //   );
+
+                      //  특정 문서 삭제하기
+                      FirebaseFirestore.instance
+                          .collection('schedule')
+                          .doc(schedule.id)
+                          .delete();
                     },
                     child: Padding(
                       padding: const EdgeInsets.only(

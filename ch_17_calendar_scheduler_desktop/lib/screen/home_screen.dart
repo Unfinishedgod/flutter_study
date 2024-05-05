@@ -176,7 +176,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           .collection('schedule')
                           .doc(schedule.id)
                           .delete();
-                    },
+                    }, 
                     child: Padding(
                       padding: const EdgeInsets.only(
                         bottom:8.0, left: 8.0, right: 8.0),

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "912877716404",
+    "project_id": "calendar-scheduler-cee11",
+    "storage_bucket": "calendar-scheduler-cee11.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:912877716404:android:5e3624fe329f86b50ba8e1",
+        "android_client_info": {
+          "package_name": "com.example.ch_17_calendar_scheduler_desktop"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0zAE0jGtYOXtosKvFOY60a1XVPh7xz0A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
